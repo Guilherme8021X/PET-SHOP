@@ -1,10 +1,10 @@
 const produtos = [
-    { id: 1, nome: 'Brinquedinho faminto', preco: 25.30, ima: '', categoria: 'brinquedo' },
-    { id: 2, nome: 'caramelo', preco: 10.15, ima: '', categoria: 'brinquedo' },
-    { id: 3, nome: 'xuxa maluca', preco: 19.90, ima: '', categoria: 'brinquedo' },
-    { id: 4, nome: 'plastico durinho', preco: 23.50, ima: '', categoria: 'brinquedo' },
-    { id: 5, nome: 'chuveiro', preco: 50.00, ima: '', categoria: 'brinquedo' },
-    { id: 6, nome: 'esponja', preco: 69.99, ima: '', categoria: 'brinquedo' },
+    { id: 1, nome: 'Brinquedinho faminto', preco: 25.30, img:'img\\Brinquedos\\Brinquedinho_faminto.jpeg', categoria: 'brinquedo' },
+    { id: 2, nome: 'caramelo', preco: 10.15, img:'img\\Brinquedos\\caramelo.jpeg', categoria: 'brinquedo' },
+    { id: 3, nome: 'xuxa maluca', preco: 19.90, img: '', categoria: 'brinquedo' },
+    { id: 4, nome: 'bolinha pet', preco: 23.50, ima: '', categoria: 'brinquedo' },
+    { id: 5, nome: 'zise', preco: 50.00, ima: '', categoria: 'brinquedo' },
+    { id: 6, nome: 'mordedor maluco', preco: 69.99, ima: '', categoria: 'brinquedo' },
     { id: 7, nome: 'esponja-trix', preco: 25.30, ima: '', categoria: 'tosa' },
     { id: 8, nome: 'brinquedo2', preco: 10.15, ima: '', categoria: 'tosa' },
     { id: 9, nome: 'brinquedo4', preco: 23.50, ima: '', categoria: 'tosa' },
@@ -45,6 +45,7 @@ function renderizarcategoria(nomeCategoria, idDiHtml) {
         produtosfiltrados.forEach(function (produto) {
             const cartaoHTML = `
             <div class="cartao">
+                <img src="${produto.img}" alt="${produto.nome}" width="120">
                 <h3>${produto.nome}</h3>
                 <p>preço: R$ ${produto.preco.toFixed(2)}</p>
                 <button>Comprar</button>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador - Muttley Pet Shop</title>
+    <link href="Estilos/style.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="container-principal">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li><a href="banho.html">BANHO</a></li>
+                    <li><a href="tosa.html">TOSA</a></li>
+                    <li><a href="racoes.html">RAÇÕES</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section style="text-align: center; margin-top: 40px;">
+            <h2>Simulador de Pacotes</h2>
+            
+            <div class="cartao" style="margin: 20px auto; width: 100%; max-width: 400px; padding: 20px;">
+                <label for="itemSelecionado"><b>Escolha o serviço/produto:</b></label><br>
+                <select id="itemSelecionado" style="margin: 10px 0; padding: 8px; width: 100%;">
+                    <option value="50.00">Banho - R$ 50,00</option>
+                    <option value="69.99">Tosa - R$ 69,99</option>
+                    <option value="120.00">Banho + Tosa - R$ 120,00</option>
+                    <option value="50.00">Saco de Ração 15kg - R$ 50,00</option>
+                </select><br><br>
+
+                <label for="quantidade"><b>Quantidade:</b></label><br>
+                <input type="number" id="quantidade" value="1" min="1" style="margin: 10px 0; padding: 8px; width: 100%;"><br><br>
+
+                <button onclick="calcularTotal()" style="width: 100%; padding: 10px; font-size: 16px;">Calcular Valor</button>
+
+                <h3 id="resultado" style="margin-top: 20px; font-size: 20px;">Total: R$ 0,00</h3>
+            </div>
+        </section>
+    </main>
+
+    <!-- O código da calculadora vai aqui ou no seu script.js -->
+    <script>
+        function calcularTotal() {
+            // A lógica vai entrar aqui!
+        }
+    </script>
+</body>
+</html>

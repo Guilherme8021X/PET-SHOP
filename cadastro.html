@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Muttley Pet Shop</title>
+    <link href="Estilos/style.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="container-principal">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li><a href="banho.html">BANHO</a></li>
+                    <li><a href="tosa.html">TOSA</a></li>
+                    <li><a href="simulador.html">SIMULADOR</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section style="display: flex; justify-content: center; margin-top: 40px;">
+            <div class="cartao" style="width: 100%; max-width: 500px; padding: 30px; text-align: left;">
+                <h2 style="text-align: center; margin-bottom: 20px;">Cadastre seu Pet</h2>
+                
+                <form id="formCadastro" onsubmit="validarFormulario(event)">
+                    
+                    <!-- Campo 1 -->
+                    <label for="nomeDono"><b>Nome do Tutor:</b></label>
+                    <input type="text" id="nomeDono" style="width: 100%; padding: 8px; margin: 8px 0 15px 0;">
+
+                    <!-- Campo 2 -->
+                    <label for="nomePet"><b>Nome do Pet:</b></label>
+                    <input type="text" id="nomePet" style="width: 100%; padding: 8px; margin: 8px 0 15px 0;">
+
+                    <!-- Campo 3 -->
+                    <label for="emailContato"><b>E-mail de Contato:</b></label>
+                    <input type="email" id="emailContato" style="width: 100%; padding: 8px; margin: 8px 0 15px 0;">
+
+                    <!-- Campo 4 -->
+                    <label for="telefone"><b>Telefone (WhatsApp):</b></label>
+                    <input type="tel" id="telefone" placeholder="(00) 00000-0000" style="width: 100%; padding: 8px; margin: 8px 0 15px 0;">
+
+                    <!-- Campo 5 -->
+                    <label for="tipoPet"><b>Tipo de Pet:</b></label>
+                    <select id="tipoPet" style="width: 100%; padding: 8px; margin: 8px 0 20px 0;">
+                        <option value="">Selecione...</option>
+                        <option value="cachorro">Cachorro</option>
+                        <option value="gato">Gato</option>
+                        <option value="outro">Outro</option>
+                    </select>
+
+                    <p id="mensagemErro" style="color: red; font-size: 14px; text-align: center; margin-bottom: 10px; display: none;"></p>
+
+                    <button type="submit" style="width: 100%; padding: 12px; font-size: 16px;">Cadastrar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- O Script de Validação -->
+    <script>
+        function validarFormulario(evento) {
+            // Interrompe o envio automático do formulário para podermos checar as regras primeiro
+            evento.preventDefault(); 
+
+            // Pega os valores que o usuário digitou
+            const dono = document.getElementById('nomeDono').value;
+            const pet = document.getElementById('nomePet').value;
+            const email = document.getElementById('emailContato').value;
+            const telefone = document.getElementById('telefone').value;
+            const tipo = document.getElementById('tipoPet').value;
+            
+            const divErro = document.getElementById('mensagemErro');
+
+            // Regra 1: Checar se algum campo ficou em branco
+            if (dono === "" || pet === "" || email === "" || telefone === "" || tipo === "") {
+                divErro.innerText = "Por favor, preencha todos os campos obrigatórios!";
+                divErro.style.display = "block";
+                return; // Para a execução do código aqui
+            }
+
+            // Regra 2: Checar se o telefone tem um tamanho mínimo aceitável (ex: 10 dígitos)
+            if (telefone.length < 10) {
+                divErro.innerText = "Digite um telefone válido com DDD.";
+                divErro.style.display = "block";
+                return;
+            }
+
+            // Se passou em todas as regras (nenhum erro parou o código)
+            divErro.style.display = "none"; // Esconde a mensagem de erro
+            alert("Cadastro realizado com sucesso! Bem-vindo, " + dono + " e " + pet + "!");
+            
+            // Opcional: limpa o formulário após o sucesso
+            document.getElementById('formCadastro').reset();
+        }
+    </script>
+</body>
+</html>
